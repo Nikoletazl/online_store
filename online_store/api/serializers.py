@@ -20,17 +20,14 @@ class OrderSerializer(WritableNestedModelSerializer, serializers.ModelSerializer
 
 
 class ReportEntrySerializer(serializers.Serializer):
-    value = serializers.DecimalField(
-        max_digits=15,
-        decimal_places=2,
-    )
-    count = serializers.IntegerField()
+    # month = serializers.DateField()
+    value = serializers.IntegerField()
 
 
 class ReportParamsSerializer(serializers.Serializer):
     start_date = serializers.DateField()
     end_date = serializers.DateField()
+    metric = serializers.CharField()
 
     def create(self, validated_data):
         return ReportParams(**validated_data)
-

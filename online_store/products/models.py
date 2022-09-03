@@ -13,9 +13,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    date = models.DateField(
-        auto_now_add=True,
-    )
+    date = models.DateField()
     products = models.ManyToManyField(
         Product,
         blank=True,
